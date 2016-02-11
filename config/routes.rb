@@ -1,14 +1,23 @@
 Rails.application.routes.draw do
+  get 'profiles/index'
+
+  get 'profiles/show'
+
   devise_for :users
+  resources :tweets, :relationships
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-
+  root 'tweets#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
-
+  get 'profiles' => 'profiles#index'
+  get 'profiles/:id' => 'profiles#show', as: :profile
+  
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
