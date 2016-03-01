@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   get 'profiles/show'
 
   devise_for :users
-  resources :tweets, :relationships
+  resources :tweets do
+    resource :like
+  end
+  resources :relationships
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

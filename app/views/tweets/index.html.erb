@@ -10,7 +10,7 @@
 		<% @tweets.each do |tweet| %>
 			<tr>
 				<td><%= tweet.message %></td>
-				<td><%= tweet.user.username %></td>
+				<td><%= link_to tweet.user.username, profile_path(tweet.user) %></td>
 				<td><%= link_to 'Show', tweet %></td>
 				<td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
 				<td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you Sure?' } %></td>
